@@ -37,4 +37,5 @@ clean:
 #
 #
 $(FILES_DIR)/$(NGINX_SRC_FILE):
+	mkdir -p $(FILES_DIR)
 	wget $(NGINX_SRC_URL) -O $@
