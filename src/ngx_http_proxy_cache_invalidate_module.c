@@ -131,15 +131,15 @@ static char *ngx_http_proxy_cache_invalidate_merge_loc_conf(ngx_conf_t *cf, void
     */
     clcf = ngx_http_conf_get_module_loc_conf(cf, ngx_http_core_module);
     if (conf->cache_invalidate != NULL &&
-        conf->cache_zone       != NULL &&
-        clcf->handler != NULL) {
-        conf->core_handler = clcf->handler;
-        clcf->handler      = ngx_http_proxy_cache_invalidate_handler;
-
+        conf->cache_zone       != NULL) {
+        if ((conf->core_handler = clcf->handler) == NULL) {
+            conf->core_handler = prev->core_handler;
+        }
         if (conf->core_handler == NULL) {
             ngx_conf_log_error(NGX_LOG_EMERG, cf, 0, "http core has no handler defined");
             return NGX_CONF_ERROR;
         }
+        clcf->handler = ngx_http_proxy_cache_invalidate_handler;
     }
 
     return NGX_CONF_OK;
