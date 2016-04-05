@@ -1,0 +1,5 @@
+ngx_addon_name=ngx_http_proxy_cache_invalidate_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_proxy_cache_invalidate_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/src/ngx_http_proxy_cache_invalidate_module.c"
+
+have=NGX_HTTP_PROXY_CACHE_INVALIDATE_MODULE . auto/have
