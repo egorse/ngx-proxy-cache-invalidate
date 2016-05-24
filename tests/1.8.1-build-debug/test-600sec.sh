@@ -42,7 +42,7 @@ echo $! > .build/ab11.pid
 ab -t $TEST_DURATION_SEC -c $TEST_CONCURENCY -n $TEST_N -k http://127.0.0.1:9000/zone_two/counter12?invalidate=1 > .build/logs/ab-counter12.log &
 echo $! > .build/ab12.pid
 
-echo "Wating clients to complete..."
+echo "Waiting clients to complete..."
 sleep $TEST_DURATION_SEC
 sleep 2
 
