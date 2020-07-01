@@ -11,7 +11,7 @@ Side effects:
 
 Status
 ======
-Tested with `1.8.0`, `1.8.1`, `1.10.0` under `valgrind` (see tests directory)
+Tested with `1.8.0`, `1.8.1`, `1.10.0`, `1.19.0` under `valgrind` (see tests directory)
 
 Configuration directives (same location syntax)
 ===============================================
