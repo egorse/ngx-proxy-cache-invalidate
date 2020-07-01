@@ -20,7 +20,7 @@ while [ ! -f .build/nginx.pid ] ; do sleep 1; done # Wait until nginx got up and
 
 echo "Test"
 FAILED=0
-mocha test.js || FAILED=1
+node_modules/.bin/_mocha test.js || FAILED=1
 
 #
 # Killall processes

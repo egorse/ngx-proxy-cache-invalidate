@@ -6,6 +6,7 @@ set -e
 #
 echo "Build"
 make .build/nginx     # Build nginx
+#(cd .build/nginx-1.8.1 && make && cp objs/nginx ..) # Rebuild, if modded some of files. i.e. for debugging
 rm -rf .build/.zone_* # Clear cache
 rm -rf .build/logs/*  # Clear logs
 
@@ -20,7 +21,7 @@ while [ ! -f .build/nginx.pid ] ; do sleep 1; done # Wait until nginx got up and
 
 echo "Test"
 FAILED=0
-mocha test.js || FAILED=1
+node_modules/.bin/_mocha test.js || FAILED=1
 
 #
 # Killall processes

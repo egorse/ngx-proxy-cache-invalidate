@@ -6,6 +6,7 @@ set -e
 #
 echo "Build"
 make .build/nginx     # Build nginx
+#(cd .build/nginx-1.8.1 && make && cp objs/nginx ..) # Rebuild, if modded some of files. i.e. for debugging
 rm -rf .build/.zone_* # Clear cache
 rm -rf .build/logs/*  # Clear logs
 
