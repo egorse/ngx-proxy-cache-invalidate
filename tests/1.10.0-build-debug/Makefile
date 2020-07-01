@@ -2,7 +2,8 @@ NGINX_VER := $(shell basename $$(readlink -e .) | sed 's/-.*$$//')
 NGINX_CONFIGURE_OPTS := --add-module=$(shell readlink -e ../..) --with-debug \
                         --without-http_rewrite_module \
 						--prefix=$(shell readlink -e .)/.build \
-						--pid-path=$(shell readlink -e .)/.build/nginx.pid
+						--pid-path=$(shell readlink -e .)/.build/nginx.pid \
+						--with-cc-opt=$(EXTRA_CFLAGS)
 
 NGINX_SRC_FILE := nginx-$(NGINX_VER).tar.gz
 NGINX_SRC_DIR  := nginx-$(NGINX_VER)
